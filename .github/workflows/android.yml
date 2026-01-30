@@ -1,0 +1,22 @@
+name: Build Android APK
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: RenPy Build
+        uses: ProjectAliceDev/renpy-build-action@v1.3.0
+        with:
+          sdk-version: '8.1.1'
+          project-dir: '.'
+          package-name: 'com.bookthief.hellyeah'
+          package-version: '1.0.0'
+          android: true
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: hell-yeah-build
+          path: |
+            **/*.apk
+
