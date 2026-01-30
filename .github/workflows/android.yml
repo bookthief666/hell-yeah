@@ -10,12 +10,9 @@ jobs:
         with:
           sdk-version: '8.1.1'
           project-dir: '.'
-          package-name: 'com.bookthief.hellyeah'
-          package-version: '1.0.0'
-          android: true
+          package: 'android'
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: hell-yeah-build
-          path: |
-            **/*.apk
+          path: '**/*.apk'
